@@ -1,1 +1,1 @@
-# -RAG-with-Streamlit-Ollama
+# RAG-with-Streamlit-Ollama
