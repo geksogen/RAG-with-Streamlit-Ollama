@@ -35,8 +35,9 @@ ollama run owl/t-lite
 
 ### Run App
 ```BASH
-git clone https://github.com/AIDevBytes/Streamlit-Ollama-Chatbot.git
+git clone https://github.com/geksogen/RAG-with-Streamlit-Ollama.git
 apt install python3-pip
+cd application/
 pip3 install -r requirements.txt
 streamlit run main.py
 ```
