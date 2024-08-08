@@ -32,3 +32,11 @@ ollama run owl/t-lite
 # check 
 <IP>/api/ps
 ```
+
+### Run App
+```BASH
+git clone 
+apt install python3-pip
+pip3 install -r requirements.txt
+streamlit run main.py
+```
