@@ -15,10 +15,9 @@ data = loader.load()
 # Splitting data
 text_splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=0)
 all_splits = text_splitter.split_documents(data)
-print(type(all_splits))
 
 
-documents = all_splits
+documents = json.dumps(all_splits)
 
 client = chromadb.Client()
 collection = client.create_collection(name="docs_1")
