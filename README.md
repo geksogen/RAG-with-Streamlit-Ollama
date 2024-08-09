@@ -20,6 +20,7 @@ nano /etc/docker/daemon.json
 #
 {"registry-mirrors": ["https://mirror.gcr.io", "https://daocloud.io", "https://c.163.com/", "https://registry.docker-cn.com"]}
 #
+apt  install docker-compose
 systemctl restart docker
 ```
 
@@ -41,8 +42,6 @@ cd application/
 pip3 install -r requirements.txt
 streamlit run main.py
 ```
-
-
 
 ## Clear
 ```BASH
