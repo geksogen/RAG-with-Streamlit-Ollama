@@ -4,3 +4,4 @@ chromadb
 langchain
 langchainhub
 sentence_transformers
+bs4
