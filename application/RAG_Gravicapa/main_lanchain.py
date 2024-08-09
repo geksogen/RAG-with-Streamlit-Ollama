@@ -9,5 +9,5 @@ data = loader.load()
 text_splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=0)
 all_splits = text_splitter.split_documents(data)
 
-for doc in all_splits[:3]:
+for doc in all_splits:
     print(doc)
