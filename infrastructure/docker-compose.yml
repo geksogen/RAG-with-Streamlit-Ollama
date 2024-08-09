@@ -29,10 +29,10 @@ services:
     environment: # https://docs.openwebui.com/getting-started/env-configuration#default_models
       - OLLAMA_BASE_URLS=http://host.docker.internal:11434 #comma separated ollama hosts
       - ENV=dev
-      - WEBUI_AUTH=False
+      - WEBUI_AUTH=true
       - WEBUI_NAME=AI
       - WEBUI_URL=http://localhost:8080
-      - WEBUI_SECRET_KEY=test
+      - WEBUI_SECRET_KEY=test999
     extra_hosts:
       - host.docker.internal:host-gateway
     restart: unless-stopped
