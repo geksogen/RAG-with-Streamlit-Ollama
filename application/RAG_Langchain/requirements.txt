@@ -1,0 +1,6 @@
+langchain_community
+tiktoken
+chromadb
+langchain
+langchainhub
+sentence_transformers
