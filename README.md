@@ -16,11 +16,11 @@ Building a streamlit app for Local RAG (Retrieval Augmented Generation) using LL
 #### Install Docker
 ```BASH
 apt update && apt install -y curl && curl https://get.docker.com -o install.sh && sh install.sh
+apt install docker-compose
 nano /etc/docker/daemon.json
 #
 {"registry-mirrors": ["https://mirror.gcr.io", "https://daocloud.io", "https://c.163.com/", "https://registry.docker-cn.com"]}
 #
-apt  install docker-compose
 systemctl restart docker
 ```
 
@@ -54,8 +54,8 @@ streamlit run main.py
 docker stop $(docker ps -a -q)
 docker rm $(docker ps -a -q)
 docker system prune -a
+docker-compose down --rmi all -v --remove-orphans
 ```
-
 
 ## LLM models
 orca-mini:3b
