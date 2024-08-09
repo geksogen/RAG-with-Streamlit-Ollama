@@ -1,14 +1,13 @@
-from langchain_text_splitters import RecursiveJsonSplitter
-import requests
-import json
+from langchain_community.document_loaders import WebBaseLoader
+from langchain_text_splitters import RecursiveCharacterTextSplitter
 
-# This is a large nested json object and will be loaded as a python dict
-json_data = requests.get("https://api.smith.langchain.com/openapi.json").json()
+# Load data
+loader = WebBaseLoader("https://ru.wikipedia.org/wiki/%D0%93%D1%80%D0%B0%D0%B2%D0%B8%D1%86%D0%B0%D0%BF%D0%BF%D0%B0")
+data = loader.load()
 
-splitter = RecursiveJsonSplitter(max_chunk_size=300)
-json_chunks = splitter.split_json(json_data=json_data)
+# Splitting data
+text_splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=0)
+all_splits = text_splitter.split_documents(data)
 
-docs = splitter.create_documents(texts=[json_data])
-
-for doc in docs[:3]:
+for doc in all_splits[:3]:
     print(doc)
