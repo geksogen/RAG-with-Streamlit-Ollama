@@ -26,12 +26,15 @@ systemctl restart docker
 
 #### Install Ollama
 ```BASH
+# Install Docker
 docker run -d -v ollama:/root/.ollama -p 11434:11434 --name ollama ollama/ollama
 docker exec -it ollama sh
 ollama pull owl/t-lite
 ollama run owl/t-lite
 # check 
 <IP>/api/ps
+# Install Docker-compose (OllamaUI)
+docker-compose up -d
 ```
 
 ### Run App
