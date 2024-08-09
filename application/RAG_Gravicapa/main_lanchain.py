@@ -1,20 +1,28 @@
 from langchain_community.document_loaders import WebBaseLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_text_splitters import RecursiveJsonSplitter
-
 import ollama
 import chromadb
 
+import json
+import requests
 
 # Load data
-loader = WebBaseLoader("https://ru.wikipedia.org/wiki/%D0%93%D1%80%D0%B0%D0%B2%D0%B8%D1%86%D0%B0%D0%BF%D0%BF%D0%B0")
-data = loader.load()
+#loader = WebBaseLoader("https://ru.wikipedia.org/wiki/%D0%93%D1%80%D0%B0%D0%B2%D0%B8%D1%86%D0%B0%D0%BF%D0%BF%D0%B0")
+#data = loader.load()
+data = requests.get("https://ru.wikipedia.org/wiki/%D0%93%D1%80%D0%B0%D0%B2%D0%B8%D1%86%D0%B0%D0%BF%D0%BF%D0%B0").json()
+
+
 
 # Splitting data
-text_splitter = RecursiveJsonSplitter(max_chunk_size=300)
-all_splits = text_splitter.split_json(json_data=data)
+#text_splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=0)
+#all_splits = text_splitter.split_documents(data)
 
-documents = all_splits
+splitter = RecursiveJsonSplitter(max_chunk_size=300)
+json_chunks = splitter.split_json(json_data=data)
+
+
+documents = splitter.create_documents(texts=[data])
 
 client = chromadb.Client()
 collection = client.create_collection(name="docs_1")
