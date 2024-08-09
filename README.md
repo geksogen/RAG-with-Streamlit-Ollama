@@ -33,13 +33,16 @@ ollama pull owl/t-lite
 ollama run owl/t-lite
 # check 
 <IP>/api/ps
-# Install Docker-compose (OllamaUI)
+# Install Docker-compose (Ollama + OllamaUI)
+git clone https://github.com/geksogen/RAG-with-Streamlit-Ollama.git
+cd infrastructure/
 docker-compose up -d
+# check 
+<IP:8080>/api/ps
 ```
 
 ### Run App
 ```BASH
-git clone https://github.com/geksogen/RAG-with-Streamlit-Ollama.git
 apt install python3-pip
 cd application/
 pip3 install -r requirements.txt
