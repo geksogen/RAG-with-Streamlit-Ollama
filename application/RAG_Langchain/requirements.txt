@@ -5,3 +5,5 @@ langchain
 langchainhub
 sentence_transformers
 bs4
+langchain_experimental
+pdfplumber
