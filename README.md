@@ -17,6 +17,7 @@ Building a streamlit app for Local RAG (Retrieval Augmented Generation) using LL
 ```BASH
 apt update && apt install -y curl && curl https://get.docker.com -o install.sh && sh install.sh
 apt install docker-compose
+apt install python3-pip
 nano /etc/docker/daemon.json
 #
 {"registry-mirrors": ["https://mirror.gcr.io", "https://daocloud.io", "https://c.163.com/", "https://registry.docker-cn.com"]}
@@ -43,7 +44,6 @@ docker-compose up -d
 
 ### Run App
 ```BASH
-apt install python3-pip
 cd application/
 pip3 install -r requirements.txt
 streamlit run main.py
