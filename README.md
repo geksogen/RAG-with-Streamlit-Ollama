@@ -60,3 +60,4 @@ docker-compose down --rmi all -v --remove-orphans
 ## LLM models
 orca-mini:3b
 owl/t-lite
+mxbai-embed-large
