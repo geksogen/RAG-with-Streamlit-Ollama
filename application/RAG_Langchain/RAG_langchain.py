@@ -18,6 +18,8 @@ prompt = PromptTemplate.from_template(
             """
         )
 
+query = "What is testosterone?"
+
 # Load data
 docs = PyPDFLoader(file_path="test_doc.pdf").load()
 
@@ -45,4 +47,8 @@ chain = ({
                         | StrOutputParser()
                        )
 
+if not chain:
+    print("Please ingest a PDF file first.")
+else:
+    print(chain.invoke(query))
 
