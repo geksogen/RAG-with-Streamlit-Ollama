@@ -21,7 +21,7 @@ prompt = PromptTemplate.from_template(
 query = "what is gravicapa?"
 
 # Load data
-docs = PyPDFLoader(file_path="gravicapa.pdf").load()
+docs = PyPDFLoader(file_path="gravicapa_1.pdf").load()
 
 
 # Split data
