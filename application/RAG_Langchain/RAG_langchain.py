@@ -16,3 +16,5 @@ docs = PyPDFLoader(file_path="test_doc.pdf").load()
 text_splitter = RecursiveCharacterTextSplitter(chunk_size=1024, chunk_overlap=100)
 chunks = text_splitter.split_documents(docs)
 chunks = filter_complex_metadata(chunks)
+
+print(chunks[2])
