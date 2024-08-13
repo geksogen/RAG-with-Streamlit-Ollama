@@ -11,7 +11,7 @@ st.image(
 
 OLLAMA_MODELS = ('owl/t-lite', 'orca-mini:3b')
 models = st.selectbox('What model would you like to use?', OLLAMA_MODELS)
-
+print(models)
 def display_messages():
     st.subheader("Chat")
     for i, (msg, is_user) in enumerate(st.session_state["messages"]):
@@ -49,7 +49,7 @@ def read_and_save_file():
 def page():
     if len(st.session_state) == 0:
         st.session_state["messages"] = []
-        st.session_state["assistant"] = ChatPDF(model="orca-mini:3b")
+        st.session_state["assistant"] = ChatPDF(model=models)
 
     st.header("Chatbot на локальной LLM модельки + RAG")
 
