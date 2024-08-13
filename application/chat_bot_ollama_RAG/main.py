@@ -9,6 +9,8 @@ st.image(
             "https://masterpiecer-images.s3.yandex.net/a45eafee77d111eebac46a0259d7362a:upscaled"
         )
 
+OLLAMA_MODELS = ('owl/t-lite', 'orca-mini:3b')
+model = st.selectbox('What model would you like to use?', OLLAMA_MODELS)
 
 def display_messages():
     st.subheader("Chat")
