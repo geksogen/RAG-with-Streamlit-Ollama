@@ -9,8 +9,6 @@ st.image(
             "https://masterpiecer-images.s3.yandex.net/a45eafee77d111eebac46a0259d7362a:upscaled"
         )
 
-#OLLAMA_MODELS = ('owl/t-lite', 'orca-mini:3b')
-
 
 def display_messages():
     st.subheader("Chat")
@@ -49,7 +47,7 @@ def read_and_save_file():
 def page():
     if len(st.session_state) == 0:
         st.session_state["messages"] = []
-        st.session_state["assistant"] = ChatPDF()
+        st.session_state["assistant"] = ChatPDF(model="orca-mini:3b")
 
     st.header("Chatbot на локальной LLM модельки + RAG")
 

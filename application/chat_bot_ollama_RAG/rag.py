@@ -7,8 +7,6 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.schema.runnable import RunnablePassthrough
 from langchain.prompts import PromptTemplate
 from langchain_community.vectorstores.utils import filter_complex_metadata
-import streamlit as st
-
 
 
 
@@ -18,10 +16,7 @@ class ChatPDF:
     chain = None
 
     def __init__(self, model):
-        self.model = ChatOllama(model=st.checkbox(
-    "How would you like to be contacted?",
-    ("orca-mini:3b", "owl/t-lite"),
-))
+        self.model = ChatOllama(model=model)
         self.text_splitter = RecursiveCharacterTextSplitter(chunk_size=1024, chunk_overlap=100)
         self.prompt = PromptTemplate.from_template(
             """
