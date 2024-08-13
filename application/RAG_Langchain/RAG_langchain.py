@@ -39,6 +39,7 @@ retriever = vector_store.as_retriever(
         },
     )
 
+# Create promt
 chain = ({
             "context" : retriever,
             "question" : RunnablePassthrough()
@@ -48,8 +49,9 @@ chain = ({
                         | StrOutputParser()
                        )
 
+# receive answer
 if not chain:
     print("Please ingest a PDF file first.")
 else:
-    print(chain.invoke(query))
+    print(chain.invoke(query))  # receive answer
 
