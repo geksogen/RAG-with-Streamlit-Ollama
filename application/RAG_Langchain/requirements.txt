@@ -1,9 +1,7 @@
-langchain_community
-tiktoken
-chromadb
 langchain
-langchainhub
-sentence_transformers
-bs4
-langchain_experimental
-pdfplumber
+streamlit
+streamlit_chat
+chromadb
+pypdf
+fastembed
+langchain_community
