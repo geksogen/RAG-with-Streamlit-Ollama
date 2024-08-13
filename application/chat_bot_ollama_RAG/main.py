@@ -10,7 +10,7 @@ st.image(
         )
 
 #OLLAMA_MODELS = ('owl/t-lite', 'orca-mini:3b')
-models = st.selectbox('What model would you like to use?', ("orca-mini:3b", "owl/t-lite"),)
+
 
 def display_messages():
     st.subheader("Chat")
@@ -49,6 +49,7 @@ def read_and_save_file():
 def page():
     if len(st.session_state) == 0:
         st.session_state["messages"] = []
+        models = st.selectbox('What model would you like to use?', ("orca-mini:3b", "owl/t-lite"),)
         st.write("You selected:", models)
         st.session_state["assistant"] = ChatPDF(model=models)
 
