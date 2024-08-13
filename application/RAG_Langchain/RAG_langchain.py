@@ -7,6 +7,7 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.schema.runnable import RunnablePassthrough
 from langchain.prompts import PromptTemplate
 from langchain_community.vectorstores.utils import filter_complex_metadata
+from langchain_community.document_loaders.csv_loader import CSVLoader
 
 model = ChatOllama(model="orca-mini:3b")
 prompt = PromptTemplate.from_template(
@@ -18,10 +19,11 @@ prompt = PromptTemplate.from_template(
             """
         )
 
-query = "What is testosterone?"
+query = "what is gravicapa?"
 
 # Load data
-docs = PyPDFLoader(file_path="test_doc.pdf").load()
+#docs = PyPDFLoader(file_path="test_doc.pdf").load()
+docs = CSVLoader(file_path="gravicapa.csv").load()
 
 # Split data
 text_splitter = RecursiveCharacterTextSplitter(chunk_size=1024, chunk_overlap=100)
