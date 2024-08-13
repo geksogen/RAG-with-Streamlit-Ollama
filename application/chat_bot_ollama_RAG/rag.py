@@ -9,10 +9,6 @@ from langchain.prompts import PromptTemplate
 from langchain_community.vectorstores.utils import filter_complex_metadata
 import streamlit as st
 
-models = st.checkbox(
-    "How would you like to be contacted?",
-    ("orca-mini:3b", "owl/t-lite"),
-)
 
 
 
@@ -22,7 +18,10 @@ class ChatPDF:
     chain = None
 
     def __init__(self, model):
-        self.model = ChatOllama(model=models)
+        self.model = ChatOllama(model=st.checkbox(
+    "How would you like to be contacted?",
+    ("orca-mini:3b", "owl/t-lite"),
+))
         self.text_splitter = RecursiveCharacterTextSplitter(chunk_size=1024, chunk_overlap=100)
         self.prompt = PromptTemplate.from_template(
             """
