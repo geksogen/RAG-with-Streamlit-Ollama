@@ -49,6 +49,7 @@ def read_and_save_file():
 def page():
     if len(st.session_state) == 0:
         st.session_state["messages"] = []
+        st.write("You selected:", models)
         st.session_state["assistant"] = ChatPDF(model=models)
 
     st.header("Chatbot на локальной LLM модельки + RAG")
