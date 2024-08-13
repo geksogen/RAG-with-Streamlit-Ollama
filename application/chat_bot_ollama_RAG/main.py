@@ -72,4 +72,5 @@ def page():
 if __name__ == "__main__":
     models = st.selectbox('What model would you like to use?', ("orca-mini:3b", "owl/t-lite"),)
     st.write("You selected:", models)
+    ChatPDF(model=models)
     page()
