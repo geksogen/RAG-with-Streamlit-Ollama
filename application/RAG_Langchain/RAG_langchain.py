@@ -25,7 +25,7 @@ query = "what is gravicapa?"
 # Load data
 #docs = PyPDFLoader(file_path="test_doc.pdf").load()
 #docs = CSVLoader(file_path="gravicapa.csv").load()
-docs = WebBaseLoader("https://ru.wikipedia.org/wiki/%D0%93%D1%80%D0%B0%D0%B2%D0%B8%D1%86%D0%B0%D0%BF%D0%BF%D0%B0")
+docs = WebBaseLoader("https://ru.wikipedia.org/wiki/%D0%93%D1%80%D0%B0%D0%B2%D0%B8%D1%86%D0%B0%D0%BF%D0%BF%D0%B0").load()
 
 # Split data
 text_splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=100)
