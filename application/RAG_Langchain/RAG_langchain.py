@@ -9,12 +9,40 @@ from langchain.prompts import PromptTemplate
 from langchain_community.vectorstores.utils import filter_complex_metadata
 
 model = ChatOllama(model="orca-mini:3b")
+prompt = PromptTemplate.from_template(
+            """
+            [INST]<<SYS>> You are an assistant for question-answering tasks. Use the following pieces of retrieved context to answer the question. If you don't know the answer, just say that you don't know. Use three sentences maximum and keep the answer concise.<</SYS>> 
+            Question: {question} 
+            Context: {context} 
+            Answer: [/INST]
+            """
+        )
 
-
+# Load data
 docs = PyPDFLoader(file_path="test_doc.pdf").load()
 
+# Split data
 text_splitter = RecursiveCharacterTextSplitter(chunk_size=1024, chunk_overlap=100)
 chunks = text_splitter.split_documents(docs)
 chunks = filter_complex_metadata(chunks)
 
-print(chunks[2])
+# Create Vectors and embedings
+vector_store = Chroma.from_documents(documents=chunks, embedding=FastEmbedEmbeddings())
+retriever = vector_store.as_retriever(
+    search_type="similarity_score_threshold",
+    search_kwargs={
+        'k': 3,
+        'score_threshold': 0.5
+        },
+    )
+
+chain = ({
+            "context" : retriever,
+            "question" : RunnablePassthrough()
+                       }
+                        | prompt
+                        | model
+                        | StrOutputParser()
+                       )
+
+
