@@ -9,8 +9,8 @@ st.set_page_config(
 
 st.title(Config.PAGE_TITLE)
 st.image(
-            "https://masterpiecer-images.s3.yandex.net/a45eafee77d111eebac46a0259d7362a:upscaled",
-            width=400, # Manually Adjust the width of the image as per requirement
+            "https://masterpiecer-images.s3.yandex.net/a45eafee77d111eebac46a0259d7362a:upscaled"
+             # Manually Adjust the width of the image as per requirement
         )
 
 # sets up sidebar nav widgets
