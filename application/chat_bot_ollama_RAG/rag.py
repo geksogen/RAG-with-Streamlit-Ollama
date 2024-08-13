@@ -16,7 +16,7 @@ class ChatPDF:
     chain = None
 
     def __init__(self, model):
-        #self.model = ChatOllama(model="orca-mini:3b")
+        self.model = model
         self.text_splitter = RecursiveCharacterTextSplitter(chunk_size=1024, chunk_overlap=100)
         self.prompt = PromptTemplate.from_template(
             """
