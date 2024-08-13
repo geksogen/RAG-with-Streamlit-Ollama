@@ -49,9 +49,9 @@ def read_and_save_file():
 def page():
     if len(st.session_state) == 0:
         st.session_state["messages"] = []
-        models = st.selectbox('What model would you like to use?', ("orca-mini:3b", "owl/t-lite"),)
-        st.write("You selected:", models)
-        st.session_state["assistant"] = ChatPDF(model="owl/t-lite")
+        #models = st.selectbox('What model would you like to use?', ("orca-mini:3b", "owl/t-lite"),)
+        #st.write("You selected:", models)
+        st.session_state["assistant"] = ChatPDF(model=st.selectbox('What model would you like to use?', ("orca-mini:3b", "owl/t-lite"),))
 
     st.header("Chatbot на локальной LLM модельки + RAG")
 
