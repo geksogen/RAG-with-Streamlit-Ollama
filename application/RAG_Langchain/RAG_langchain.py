@@ -23,7 +23,7 @@ query = "what is gravicapa?"
 
 # Load data
 #docs = PyPDFLoader(file_path="gravicapa_1.pdf").load()
-docs = WebBaseLoader("https://raw.githubusercontent.com/RutamBhagat/code_wizard_frontend/main/README.md")
+docs = WebBaseLoader("https://raw.githubusercontent.com/geksogen/RAG-with-Streamlit-Ollama/master/application/RAG_Langchain/gravicapa.md")
 docs = docs.load()
 
 # Split data
