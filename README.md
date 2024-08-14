@@ -16,7 +16,7 @@ Building a streamlit app for Local RAG (Retrieval Augmented Generation) using LL
 #### Install Docker
 ```BASH
 apt update && apt install -y curl && curl https://get.docker.com -o install.sh && sh install.sh
-apt install docker-compose
+apt install docker-compose python3-pip
 apt install python3-pip
 nano /etc/docker/daemon.json
 #
@@ -61,3 +61,4 @@ docker-compose down --rmi all -v --remove-orphans
 orca-mini:3b
 owl/t-lite
 mxbai-embed-large
+tinyllama
