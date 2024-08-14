@@ -21,10 +21,13 @@ prompt = PromptTemplate.from_template(
 
 query = "what is gravicapa?"
 
-# Load data
-#docs = PyPDFLoader(file_path="gravicapa_1.pdf").load()
-docs = WebBaseLoader("https://raw.githubusercontent.com/geksogen/RAG-with-Streamlit-Ollama/master/application/RAG_Langchain/gravicapa.md")
-docs = docs.load()
+# Load data from PDF
+docs = PyPDFLoader(file_path="gravicapa_1.pdf").load()
+
+# Load data from Web base
+#docs = WebBaseLoader("https://raw.githubusercontent.com/geksogen/RAG-with-Streamlit-Ollama/master/application/RAG_Langchain/gravicapa.md")
+#docs = docs.load()
+#print(docs[0].page_content[:500])
 
 # Split data
 text_splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=100)

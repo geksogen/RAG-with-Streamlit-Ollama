@@ -3,3 +3,4 @@ chromadb
 pypdf
 fastembed
 langchain_community
+bs4
