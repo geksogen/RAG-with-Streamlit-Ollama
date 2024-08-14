@@ -7,8 +7,9 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.schema.runnable import RunnablePassthrough
 from langchain.prompts import PromptTemplate
 from langchain_community.vectorstores.utils import filter_complex_metadata
+from langchain.document_loaders import WebBaseLoader
 
-model = ChatOllama(model="orca-mini:3b")
+model = ChatOllama(model="tinyllama")
 prompt = PromptTemplate.from_template(
             """
             [INST]<<SYS>> You are an assistant for question-answering tasks. Use the following pieces of retrieved context to answer the question. If you don't know the answer, just say that you don't know. Use three sentences maximum and keep the answer concise.<</SYS>> 
@@ -21,8 +22,9 @@ prompt = PromptTemplate.from_template(
 query = "what is gravicapa?"
 
 # Load data
-docs = PyPDFLoader(file_path="gravicapa_1.pdf").load()
-
+#docs = PyPDFLoader(file_path="gravicapa_1.pdf").load()
+docs = WebBaseLoader("https://raw.githubusercontent.com/RutamBhagat/code_wizard_frontend/main/README.md")
+docs = docs.load()
 
 # Split data
 text_splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=100)
