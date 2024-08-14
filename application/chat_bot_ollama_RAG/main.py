@@ -9,6 +9,11 @@ st.image(
             "https://masterpiecer-images.s3.yandex.net/a45eafee77d111eebac46a0259d7362a:upscaled"
         )
 
+with st.sidebar:
+    st.markdown("# Chat Options")
+
+    # widget - https://docs.streamlit.io/library/api-reference/widgets/st.selectbox
+    model = st.selectbox('What model would you like to use?', ('owl/t-lite', 'orca-mini:3b', "tinyllama"),)
 
 def display_messages():
     st.subheader("Chat")
@@ -47,7 +52,7 @@ def read_and_save_file():
 def page():
     if len(st.session_state) == 0:
         st.session_state["messages"] = []
-        st.session_state["assistant"] = ChatPDF(model="tinyllama")
+        st.session_state["assistant"] = ChatPDF(model=model)
 
     st.header("Chatbot на локальной LLM модельки + RAG")
 
